@@ -34,6 +34,7 @@ module.exports = (fileLocation, start, end, callback) => {
   });
 };
 
-function fallbackTime(wat, fallback = new Date()) {
+function fallbackTime(wat, fallback) {
+  fallback = fallback || new Date();
   return isDate(wat) ? wat : fallback;
 }
