@@ -1,0 +1,38 @@
+{
+  "name": "file-birth-at",
+  "version": "0.0.1",
+  "description": "figure out when the file is created, in a silly way",
+  "main": "index.js",
+  "scripts": {
+    "test": "xo && nyc ava",
+    "watch": "nodemon -i node_modules -x \"npm test\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhuangya/file-birth-at.git"
+  },
+  "keywords": [
+    "file",
+    "time"
+  ],
+  "author": "Ya Zhuang <zhuangya@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhuangya/file-birth-at/issues"
+  },
+  "homepage": "https://github.com/zhuangya/file-birth-at#readme",
+  "devDependencies": {
+    "ava": "^0.15.0",
+    "nodemon": "^1.9.2",
+    "nyc": "^6.4.4",
+    "xo": "^0.15.1"
+  },
+  "dependencies": {
+    "date-fns": "^1.2.0",
+    "isfunction": "0.0.6"
+  },
+  "xo": {
+    "space": 2
+  },
+  "engine": ">=5"
+}
