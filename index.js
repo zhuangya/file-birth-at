@@ -20,21 +20,36 @@ module.exports = (fileLocation, start, end, callback) => {
       return callback(err);
     }
 
-    const validTimes = Object.keys(stat).reduce((soFar, current) => {
-      if (!current.match(/[^a]time/)) {
-        return soFar;
-      }
-      soFar.push(stat[current]);
-      return soFar;
-    }, []).filter(time => {
-      return isWithinRange(time, start, end);
-    });
-
+    const validTimes = getTimesFromStat(stat, start, end);
     callback(null, min.apply(null, validTimes));
   });
+};
+
+module.exports.sync = (fileLocation, start, end) => {
+  start = fallbackTime(start, new Date(1970, 1, 1));
+  end = fallbackTime(end);
+  try {
+    const stat = fs.statSync(fileLocation);
+    const validTimes = getTimesFromStat(stat, start, end);
+    return min.apply(null, validTimes);
+  } catch (e) {
+    throw e;
+  }
 };
 
 function fallbackTime(wat, fallback) {
   fallback = fallback || new Date();
   return isDate(wat) ? wat : fallback;
+}
+
+function getTimesFromStat(stat, start, end) {
+  return Object.keys(stat).reduce((soFar, current) => {
+    if (!current.match(/[^a]time/)) {
+      return soFar;
+    }
+    soFar.push(stat[current]);
+    return soFar;
+  }, []).filter(time => {
+    return isWithinRange(time, start, end);
+  });
 }
