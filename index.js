@@ -12,7 +12,7 @@ module.exports = (fileLocation, start, end, callback) => {
     start = null;
   }
 
-  start = fallbackTime(start, new Date(1970, 1, 1));
+  start = fallbackTime(start, new Date('1970-01-01 08:00:00'));
   end = fallbackTime(end);
 
   fs.stat(fileLocation, (err, stat) => {
