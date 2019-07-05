@@ -22,11 +22,11 @@
   },
   "homepage": "https://github.com/zhuangya/file-birth-at#readme",
   "devDependencies": {
-    "ava": "^0.15.0",
+    "ava": "^2.1.0",
     "nodemon": "^1.9.2",
-    "nyc": "^6.4.4",
-    "touch": "^1.0.0",
-    "xo": "^0.15.1"
+    "nyc": "^14.1.1",
+    "touch": "^3.1.0",
+    "xo": "^0.24.0"
   },
   "dependencies": {
     "date-fns": "^1.2.0",
